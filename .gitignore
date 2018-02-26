@@ -7,3 +7,6 @@
 nbproject
 .rsync_cache
 .DS_Store
+node_modules
+build
+yarn.lock
