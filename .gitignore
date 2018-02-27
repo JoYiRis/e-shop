@@ -10,3 +10,8 @@ nbproject
 node_modules
 build
 yarn.lock
+.sass-cache
+build
+bundle
+dist
+yarn-error.log

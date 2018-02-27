@@ -7,7 +7,29 @@ module.exports = function(grunt) {
             },
             build: {
                 src: './build/bundle.js',
-                dest: './bundle.min.js'
+                dest: './bundle/bundle.min.js'
+            }
+        },
+        babel: {
+            option: {
+                sourceMap: false,
+                presets: ['babel-preset-env']
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'dist',
+                    src: '**/*.js',
+                    dest: 'dist'
+                }]
+            }
+        },
+        copy: {
+            main: {
+                expand: true,
+                cwd:'src',
+                src: ['js'],
+                dest: 'dist/'
             }
         },
         concat: {
@@ -15,19 +37,78 @@ module.exports = function(grunt) {
                 separator: ';'
             },
             dist: {
-                src:['src/js/app.js', 'src/js/**／*.js'],
+                src:['dist/js/**/*.js'],
                 dest: 'build/bundle.js'
             }
         },
+        compass: {
+            config: 'config.rb'
+        },
+        postcss: {
+            options: {
+                processors: [
+                    require('autoprefixer')({browsers: ['last 2 version']})
+                ]
+            },
+            dist: {
+                src: 'dist/css/**/*.css'
+            }
+        },
+        cssmin: {
+            main: {
+                files: [{
+                    'build/main.css': ['dist/css/**/*.css']
+                }]
+            }
+        },
         watch: {
-
+            js: {
+                files: ['src/js/app.js', 'src/js/**/*.js'],
+                tasks: ['copy', 'concat', 'uglify'],
+                options: {
+                    spawn: false
+                }
+            }
+        },
+        clean: {
+            dist: ['dist/css/**/*.css', 'dist/js/**/*.js', 'dist/view/**/*.html'],
+            build: ['build/**'],
+            bundle: ['bundle/**']
         }
     });
 
-    // Load the plugin for various tasks.
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-concat');
+    // css
+    grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-postcss');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-    // Default task(s).
-    grunt.registerTask('default', ['concat', 'uglify']);
+    // js
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-babel');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+
+    /*
+     * image
+     *
+     * to do here
+     */
+
+    // watch
+    grunt.loadNpmTasks('grunt-contrib-watch');
+
+    // clean
+    grunt.loadNpmTasks('grunt-contrib-clean');
+
+    // register task(s).
+    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('build', [
+        'compass',
+        'postcss',
+        'cssmin',
+        'copy',
+        'babel',
+        'concat',
+        'uglify'
+    ]);
 };
