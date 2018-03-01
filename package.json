@@ -24,6 +24,7 @@
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-uglify": "^3.3.0",
     "requirejs": "^2.3.5",
+    "socket.io": "^2.0.4",
     "underscore": "^1.8.3"
   },
   "dependencies": {
@@ -31,9 +32,11 @@
     "autoprefixer": "^8.0.0",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "bootstrap": "^4.0.0",
     "grunt-babel": "^7.0.0",
     "grunt-contrib-compass": "^1.1.1",
     "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-watch": "^1.0.0",
