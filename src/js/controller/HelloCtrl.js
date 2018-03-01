@@ -6,3 +6,4 @@ function HelloCtrl() {
 
 angular.module('eshopCtrl')
     .controller('HelloCtrl', HelloCtrl);
+

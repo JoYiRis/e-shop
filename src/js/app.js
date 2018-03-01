@@ -9,3 +9,4 @@ eshopCtrl.config(['$stateProvider', function($stateProvider) {
         templateUrl: './src/view/Hello.html'
     })
 }]);
+

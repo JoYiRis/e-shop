@@ -41,3 +41,4 @@ function eshopNavRegister() {
 
 angular.module('eshopCtrl')
     .directive('eshopNav', eshopNavRegister);
+
