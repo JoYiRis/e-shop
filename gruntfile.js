@@ -1,4 +1,14 @@
-module.exports = function(grunt) {
+const SocketIo = require('socket.io');
+
+module.exports = function loadGrunt(grunt) {
+    const createServer = function createServer(server, connect, options) {
+        let io = SocketIo.listen(server);
+
+        io.sockets.on('conncetion', function doWithSock(socket) {
+
+        });
+    };
+
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         uglify: {
@@ -28,7 +38,7 @@ module.exports = function(grunt) {
             main: {
                 expand: true,
                 cwd:'src',
-                src: ['js'],
+                src: ['**'],
                 dest: 'dist/'
             }
         },
@@ -63,10 +73,20 @@ module.exports = function(grunt) {
         },
         watch: {
             js: {
-                files: ['src/js/app.js', 'src/js/**/*.js'],
-                tasks: ['copy', 'concat', 'uglify'],
+                files: ['src/js/**/*.js', 'src/css/**/*.sass'],
+                tasks: ['build'],
                 options: {
                     spawn: false
+                }
+            }
+        },
+        connect: {
+            server: {
+                options: {
+                    port: 8084,
+                    hostname: '*',
+                    livereload: 'true',
+                    onCreateServer: createServer
                 }
             }
         },
@@ -100,8 +120,11 @@ module.exports = function(grunt) {
     // clean
     grunt.loadNpmTasks('grunt-contrib-clean');
 
+    //connect
+    grunt.loadNpmTasks('grunt-contrib-connect');
+
     // register task(s).
-    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('default', ['connect', 'watch']);
     grunt.registerTask('build', [
         'compass',
         'postcss',
@@ -112,3 +135,4 @@ module.exports = function(grunt) {
         'uglify'
     ]);
 };
+

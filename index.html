@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>e shop</title>
+        <link rel="stylesheet" href="build/main.css">
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    </head>
+    <body ng-app="eshopCtrl">
+        <div eshop-nav></div>
 
-</body>
+
+        <ui-view></ui-view>
+        <script src="node_modules/angular/angular.js"></script>
+        <script src="node_modules/@uirouter/angularjs/release/angular-ui-router.js"></script>
+        <script src="build/bundle.js"></script>
+    </body>
 </html>
+

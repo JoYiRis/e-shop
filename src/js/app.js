@@ -1,3 +1,12 @@
-/**
- * Created by joey on 26/02/2018.
- */
+var eshopCtrl = angular.module('eshopCtrl', ['ui.router']);
+console.log(eshopCtrl);
+eshopCtrl.config(['$stateProvider', function($stateProvider) {
+    $stateProvider
+    .state({
+        controller: 'HelloCtrl as HelloCtrlVM',
+        name: 'hello',
+        url: '/hello',
+        templateUrl: './src/view/Hello.html'
+    })
+}]);
+
