@@ -17,11 +17,30 @@
   },
   "homepage": "https://github.com/JoYiRis/e-shop#readme",
   "devDependencies": {
+    "angular": "^1.6.9",
     "grunt": "^1.0.2",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-csslint": "^2.0.0",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-uglify": "^3.3.0",
-    "grunt-sass": "^2.1.0"
+    "requirejs": "^2.3.5",
+    "socket.io": "^2.0.4",
+    "underscore": "^1.8.3"
+  },
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.15",
+    "autoprefixer": "^8.0.0",
+    "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "bootstrap": "^4.0.0",
+    "grunt-babel": "^7.0.0",
+    "grunt-contrib-compass": "^1.1.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-postcss": "^0.9.0"
   }
 }
