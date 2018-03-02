@@ -23,22 +23,22 @@ function eshopNavCtrl() {
         // $state.go()
     };
 }
-console.log(angular.module('eshopCtrl'));
-function eshopNavRegister() {
-    var directive = {
-        bindToController: true,
-        controller: eshopNavCtrl,
-        controllerAs: 'eshopNavVm',
-        restrict: 'A',
-        scope: {
-            content: '='
-        },
-        templateUrl: './src/view/eshopNav.html'
-    };
 
-    return directive
+function eshopNavRegister() {
+	var directive = {
+		bindToController: true,
+		controller: eshopNavCtrl,
+		controllerAs: 'eshopNavVm',
+		restrict: 'A',
+		scope: {
+			content: '='
+		},
+		templateUrl: './src/view/eshopNav.html'
+	};
+
+	return directive
 }
 
 angular.module('eshopCtrl')
-    .directive('eshopNav', eshopNavRegister);
+	.directive('eshopNav', eshopNavRegister);
 
