@@ -1,8 +1,28 @@
-<ul class="eshop-navigate-content">
-    <li class="eshop-navigate-row" ng-repeat="row in eshopNavVm.navs">
-        <a class="eshop-navigate-row-text" ui-sref="row.actionName" href="row.actionName">
-            {{ row.text }}
-        </a>
-    </li>
-</ul>
-
+<div class="eshop-navigate-header" ng-repeat="row in eshopNavVm.navs | filter: { active: true }">
+	<span class="nav-header-active-title">{{ row.text }}</span>
+	<button class="menu-button">
+		<span class="fa fa-bars"></span>
+	</button>
+</div>
+<div class="eshop-navigate-bar">
+	<ul class="eshop-navigate-content">
+		<li
+			role="presentation"
+			class="eshop-navigate-row"
+			ng-repeat="row in eshopNavVm.navs"
+		>
+			<a
+				class="eshop-navigate-row-text"
+				href="#"
+				ng-click="eshopNavVm.linkTo(row)"
+				ng-class="{ active: row.active }"
+			>
+				{{ row.text }}
+			</a>
+		</li>
+	</ul>
+	<a class="eshop-nav-user" ui-sref="hello">
+		<span class="fa fa-user-circle-o"></span>
+		<span>Zzjoy</span>
+	</a>
+</div>
