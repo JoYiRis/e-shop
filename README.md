@@ -5,4 +5,4 @@
   成功之后 输入 `grunt` 启动项目  
   在浏览器访问`localhost:8084/index.html`.(如果有需要更改端口号 请在 `gruntfile.js` 内修改)   
   后期引入 dotenv 做环境变量配置 暂时不做考虑
- 
+
