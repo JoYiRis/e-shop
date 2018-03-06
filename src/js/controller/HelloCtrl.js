@@ -1,5 +1,5 @@
 function HelloCtrl() {
-    var self = this;
+    const self = this;
 
     self.textHTML = 'Main Controller injected success';
 }

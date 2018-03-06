@@ -1,19 +1,62 @@
 .eshop-navigate
+	background-color: #222
+	height: 50px
+	line-height: 50px
 	width: 100%
-	.eshop-navigate-content
-		background-color: coral
-		width: 100%
-		.eshop-navigate-row
-			display: inline-block
+	.eshop-navigate-header
+		align-items: center
+		display: flex
+		height: 50px
+		justify-content: space-between
+		line-height: 50px
+		padding: 0 10px
+		@media screen and (min-width: 768px)
+			display: none
+		.nav-header-active-title
+			color: #fff
 			font-size: 20px
-			height: 30px
-			line-height: 30px
-			list-style: none
-			margin: 0 8px
-			position: relative
-			text-align: center
-			text-decoration: none
-			width: 63px
-			.eshop-navigate-row-text
+		.menu-button
+			background-color: #222
+			border: 1px solid #333
+			border-radius: 3px
+			cursor: pointer
+			height: 40px
+			line-height: 40px
+			outline: none
+			width: 40px
+			&:active
+				position: relative
+				top: 1px
+			&:hover
+				border: 2px solid #333
+			.fa-bars
 				color: #fff
-
+				font-size: 25px
+	.eshop-navigate-bar
+		display: flex
+		height: 50px
+		line-height: 50px
+		justify-content: space-between
+		padding: 0 8px
+		.eshop-navigate-content
+			padding: 0
+			@media screen and (max-width: 768px)
+				display: none
+			.eshop-navigate-row
+				display: inline-block
+				font-size: 23px
+				list-style: none
+				margin: 0 12px
+				text-align: center
+	.eshop-navigate-row-text
+		color: #9d9d9d
+		&:hover:not(.active)
+			color: #fff
+	.active
+		font-size: 25px
+		font-weight: 500
+	.eshop-nav-user
+		color: #9d9d9d
+		font-size: 25px
+		&:hover:not(.active)
+			color: #fff
